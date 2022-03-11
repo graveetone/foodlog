@@ -2,21 +2,20 @@ require "application_system_test_case"
 
 class EntriesTest < ApplicationSystemTestCase
   setup do
-    @entry = entries(:one)
+    @entry = entries(:breakfast)
   end
 
   test "visiting the index" do
     visit entries_url
-    assert_selector "h1", text: "Entries"
+    assert_selector "h1", text: "Foodlog – #{DateTime.now.to_fs(:nice_date)}"
   end
-
   test "should create entry" do
     visit entries_url
-    click_on "New entry"
+    click_on "Create new entry"
 
     fill_in "Calories", with: @entry.calories
     fill_in "Carbohydrates", with: @entry.carbohydrates
-    fill_in "Gats", with: @entry.gats
+    fill_in "Fats", with: @entry.fats
     fill_in "Meal type", with: @entry.meal_type
     fill_in "Proteins", with: @entry.proteins
     click_on "Create Entry"
@@ -27,11 +26,11 @@ class EntriesTest < ApplicationSystemTestCase
 
   test "should update Entry" do
     visit entry_url(@entry)
-    click_on "Edit this entry", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Calories", with: @entry.calories
     fill_in "Carbohydrates", with: @entry.carbohydrates
-    fill_in "Gats", with: @entry.gats
+    fill_in "Fats", with: @entry.fats
     fill_in "Meal type", with: @entry.meal_type
     fill_in "Proteins", with: @entry.proteins
     click_on "Update Entry"
@@ -42,7 +41,7 @@ class EntriesTest < ApplicationSystemTestCase
 
   test "should destroy Entry" do
     visit entry_url(@entry)
-    click_on "Destroy this entry", match: :first
+    click_on "Delete", match: :first
 
     assert_text "Entry was successfully destroyed"
   end

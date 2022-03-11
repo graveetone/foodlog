@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
+  # belongs_to :category
 
   # GET /entries or /entries.json
   def index
@@ -65,6 +66,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:meal_type, :calories, :proteins, :carbohydrates, :gats)
+      params.require(:entry).permit(:meal_type, :calories, :proteins, :carbohydrates, :fats)
     end
 end

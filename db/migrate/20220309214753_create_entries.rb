@@ -5,7 +5,7 @@ class CreateEntries < ActiveRecord::Migration[7.0]
       t.integer :calories
       t.integer :proteins
       t.integer :carbohydrates
-      t.integer :gats
+      t.integer :fats
 
       t.timestamps
     end
