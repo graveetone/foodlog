@@ -1,10 +1,40 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title do %>
+<%= @entry.meal_type %> &ndash; <%= DateTime.now.to_fs(:nice_date) %>
+<% end %>
 
-<%= render @entry %>
+<div class="columns mt-6 is-centered">
+<div class="column is-one-third">
+<nav class="panel is-link">
+<p class="panel-heading">
+Meal type: <%= @entry.meal_type %>
+</p>
 
-<div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
+<div class="panel-block">
+Calories: <%= @entry.calories %>
+</div>
 
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+<div class="panel-block">
+Proteins: <%= @entry.proteins %>
+</div>
+
+<div class="panel-block">
+Carbohydrates: <%= @entry.carbohydrates %>
+</div>
+
+<div class="panel-block">
+Fats: <%= @entry.gats %>
+</div>
+
+</nav>
+<div class="columns is-mobile">
+<div class="column">
+  <%= link_to "Edit", edit_entry_path(@entry), class: "button is-gray" %>
+  <%= link_to "Back", entries_path, class: "button is-gray" %>
+  <%= link_to 'Destroy',  @entry,
+    data: { confirm: 'Are you sure?' }, method: :delete %>
+  <%= button_to "Delete", {:controller => :entries,
+      :action => 'destroy', :id => @entry.id }, :method => :delete, class: "button is-gray" %>
+  </div>
+  </div>
+  </div>
 </div>
