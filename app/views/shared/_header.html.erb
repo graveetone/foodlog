@@ -8,18 +8,15 @@
           <%# <span class="has-text-weight-bold is-size-4 ml-4">Foodlog</span> %>
           <img src="https://iconarchive.com/download/i2262/aha-soft/food/hamburger.ico">
           Foodlog
-          <% end %>
-          
-          <span class="navbar-burger" data-target="navbarMenuHeroA">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+          <% end %>       
         </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
           <span class="navbar-item">
           <%= link_to "Create new entry", new_entry_path, class: "button is-success" %>          
+          </span>
+          <span class="navbar-item">
+          <%= link_to "Create new category", new_category_path, class: "button is-success" %>          
           </span>
           </div>
         </div>
@@ -28,7 +25,7 @@
   </div>
 
   <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
+  <div class="hero-head">
     <div class="container has-text-centered">
       <p class="title">
           <% if content_for(:title)%>
@@ -36,7 +33,7 @@
           <% else %>
           Foodlog
           <% end %>
-
+<br><br>
       </p>
     </div>
   </div>

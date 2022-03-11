@@ -39,6 +39,10 @@
     <%= form.number_field :fats, class: "input" %>
   </div>
 
+<div class="field">
+<%= form.label :category, class: "label" %>
+<%= form.select :category_id, Category.all.collect {|u| [u.title, u.id] }, {}, class: "select"%>
+</div>
   <div>
     <%= form.submit class: "button is-success mt-4" %>
   </div>

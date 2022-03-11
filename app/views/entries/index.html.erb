@@ -10,7 +10,7 @@ Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
   <div class="column is-one-quarter">
   <div class="card">
   <div class="card-header">
-    <p class="card-header-title"><%= entry.meal_type %> </p>
+    <p class="card-header-title"><%= entry.meal_type %> | <%= entry.category.title if entry.category.present? %> </p>
     </div>
     <div class="card-content">
     <div class="content">
