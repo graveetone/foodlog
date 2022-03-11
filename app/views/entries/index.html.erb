@@ -24,11 +24,15 @@ Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
     <div class="card-footer">
       <%= link_to "Show", entry, class: "card-footer-item" %>
       <%= link_to "Edit", edit_entry_path(entry), class: "card-footer-item" %>
-        <%= button_to "Delete", {:controller => :entries,
-      :action => 'destroy', :id => @entry.id }, :method => :delete, class: "card-footer-item" %>
+        <%= link_to "Delete", {:controller => :entries,
+      :action => 'destroy', :id => entry.id }, :method => :delete, class: "is-link card-footer-item" %>
     </div>
     </div>
     </div>
   <% end %>
+</div>
+
+<div class="columns is-centered mt-6">
+<%= link_to "View all entries", archives_index_path, class: "button is-link is-outlined is-centered" %>
 </div>
 </div>
